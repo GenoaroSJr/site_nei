@@ -1,0 +1,50 @@
+<!-- Pagina de Eventos -->
+<link rel="stylesheet" href="/css/inicial.css">
+<section class="header-site" style="padding-bottom: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="thumbnail text-center">
+                    <h1 class="text-center" style="font-size: 40px">NEI - EVENTOS</h1>
+                    <hr>
+                    <p class="lead text-center" style="font-size: 20px">Núcleo de Educação Inclusiva</p>
+                    <p class="text-center">
+                        <a href="/" class="btn btn-info ml-1">INICIO</a>   
+                        <a href="/" class="btn btn-info ml-1">PESQUISA</a>   
+                        <a href="/categorias" class="btn btn-info ml-1">EVENTOS</a>           
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-site" style="padding: 50px;">
+    <div class="container-fluid">
+        <div class="row">
+        {{#each categorias}}
+            <div class="col-4 card mb-4">
+                <div class="thumbnail text-center">
+                    <img class="imagem" src="img/image002.jpg" style="margin-top: 15px;">
+                    <div class="caption text-center">
+                        <p class="text-center">
+                            <a href="/categorias/{{slug}}"><h3>{{nome}}</h3></a>
+                        </p>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-12 card">
+                <div class="thumbnail text-center">
+                    <div class="caption text-center">
+                        <p class="text-center">
+                            <h3>NÃO HÁ EDITAIS CADASTRADOS</h3>          
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</section>
