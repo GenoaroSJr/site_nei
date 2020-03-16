@@ -1,0 +1,19 @@
+<h2>Lista de Ediatis</h2>
+<hr>
+<a href="/admin/editais/add"><button class="btn btn-success">PUBLICAR</button></a>
+
+{{#each editais}}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4>{{titulo}}</h4>
+            <small>Data: {{data}}</small><br>
+            <a href="/admin/editais/edit/{{_id}}"><button class="btn btn-success mt-2">Editar</button></a>
+            <form action="/admin/editais/deletar" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-2">Deletar</button>
+            </form>
+        </div>
+    </div>
+{{else}}
+    <h4 class="mt-3">Nenhum edital registrado</h4>
+{{/each}}

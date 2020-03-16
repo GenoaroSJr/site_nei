@@ -22,15 +22,14 @@
 <section class="content-site" style="padding: 50px;">
     <div class="container-fluid">
         <div class="row">
-        {{#each categorias}}
+        {{#each editais}}
             <div class="col-4 card mb-4">
                 <div class="thumbnail text-center">
-                    <img class="imagem" src="img/image002.jpg" style="margin-top: 15px;">
+                    <img class="imagem" src="img/pdf.jpg" style="margin-top: 15px;">
                     <div class="caption text-center">
-                        <p class="text-center">
-                            <a href="/categorias/{{slug}}"><h3>{{nome}}</h3></a>
-                        </p>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
+                        <h2 class="text-center">{{titulo}}</h2>
+                        <h5>Data: {{dia}}</h5>
+                        <p>{{descricao}}</p>
                     </div>
                 </div>
             </div>

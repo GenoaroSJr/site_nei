@@ -23,49 +23,38 @@
 <section>
     <div class="container-fluid">
         <div class="row" style="padding-top: 30px; background-color: #505763">
-            <div class="col-4 "></div>
-            <div class="col-4 card ml-4" style="padding-top: 20px; padding-bottom: 5px; background-color: white; position: absolute;">
-                <div class="thumbnail">
-                    <img style="width: 100%;" src="/img/image002.jpg" alt="">
-                    <h2 class="mt-4" style="font-size: 35px; color: black;">{{categoria.nome}}</h2>
-                    <h3 class="lead m-0" style="font-size: 20px; color: black;">Faça sua incrição!</h3>
-                        <form action="/usuarios/login" method="POST">
-                            <input type="email" class="form-control mt-3" name="email" placeholder="Nome" required>
-                            <input type="password" class="form-control mt-3" name="senha" placeholder="E-mail" required>
-                            <button class="btn btn-success mt-3" type="submit" style="width: 100%;">Entrar</button>
-                        </form>
-                    </p>
-                </div>
-            </div>
+
             <div class="col-7" style="padding-bottom: 20px; margin-left: 70px; margin-bottom: 20px;">
                 <div class="thumbnail">
                     <h1 style="font-size: 40px; color: white;">{{categoria.nome}}</h1>
-                    <p class="lead m-0" style="font-size: 30px; color: white;">Aqui entra algum slogam que faz sentido
-                        para o curso</p>
+                    <p class="lead m-0" style="font-size: 30px; color: white;">{{categoria.slogam}}</p>
                     <p class="lead m-0" style="font-size: 20px; color: white;">
-                        <samp class="mr-4">Criado por nome de alguém</samp>
-                        <samp>Criado por nome de alguém</samp>
+                        <samp class="mr-4">{{categoria.autor}}</samp>
+                        <samp>{{categoria.dia}}</samp>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="row" style="padding-top: 30px;">
-            <div class="col-4"></div>
-            <div class="col-7 card" style="padding-bottom: 20px; margin-left: 70px; margin-bottom: 20px;">
+        <div class="row">
+            <div class="col-4 card m-4" style="padding-top: 20px; padding-bottom: 5px; background-color: white;">
+                <div class="thumbnail">
+                    <img style="width: 100%;" src="/img/{{categoria.file_name}}" alt="">
+                    <h2 class="mt-4" style="font-size: 35px; color: black;">{{categoria.nome}}</h2>
+                    <h3 class="lead m-0" style="font-size: 20px; color: black;">Faça sua incrição!</h3>
+                    <form action="/" method="POST">
+                        <input type="email" class="form-control mt-3" name="email" placeholder="Nome" required>
+                        <input type="password" class="form-control mt-3" name="senha" placeholder="E-mail" required>
+                        <button class="btn btn-success mt-3" type="submit" style="width: 100%;">Entrar</button>
+                    </form>
+                    </p>
+                </div>
+            </div>
+            <div class="col-7 card m-4" style="padding-bottom: 20px; margin-bottom: 20px;">
                 <div class="thumbnail">
                     <p style="font-size: 30px; color: black;">O que você aprenderá</p>
-                    <div class="row p-2" style="height: 235px;">
+                    <div class="row p-1" style="height: 235px;">
                         <div class="col-12 p-o m-0">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of
-                                a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. Many desktop publishing packages and web
-                              </p>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of
-                                a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                more-or-less normal distribution of letters, as opposed to using 'Content here, content
-                                here', making it look like readable English. Many desktop publishing packages and web
-                               </p>
+                            <p>{{categoria.texto}}</p>
                         </div>
                     </div>
 
@@ -74,6 +63,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 

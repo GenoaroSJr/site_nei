@@ -6,14 +6,15 @@
 <h3>Editar Categoria: </h3>
 <div class="card">
     <div class="card-body">
-        <form action="/admin/categorias/edit" method="POST">
-            <input type="hidden" name="id" value="{{categoria._id}}">
-            <label for="nome">Nome: </label>
-            <input type="text" id="nome" name="nome" placeholder="Nome da Categoria" class="form-control" value="{{categoria.nome}}">
-            <label for="slug">Slug</label>
-            <input type="text" id="slug" name="slug" placeholder="Slug da Categoria" class="form-control" value="{{categoria.slug}}">
-            <br>
-            <button type="submit" class="btn btn-success">Editar Categoria</button>
+        <form class="card p-2" action="/admin/categorias/edit" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="text" id="nome" name="nome" placeholder="Nome do Curso / Semana" class="form-control mt-1" value="{{categoria.nome}}">
+            <input type="text" id="slogam" name="slogam" placeholder="Chamada para o curso" class="form-control mt-1" value="{{categoria.slogam}}">
+            <input type="text" id="autor" name="autor" placeholder="Palestrante / Professor" class="form-control mt-1" value="{{categoria.autor}}">
+            <input type="text" id="dia" name="dia" placeholder="Data do curso" class="form-control mt-1" value="{{categoria.dia}}">
+            <input type="text" id="slug" name="slug" placeholder="Slug da Categoria" class="form-control mt-1" value="{{categoria.slug}}">
+            <input type="text" id="texto" name="texto" placeholder="Ementa do curso" class="form-control mt-1" value="{{categoria.texto}}">
+            <button type="submit" class="btn btn-success mt-1">Criar Categoria</button>
         </form>
     </div>
 </div>

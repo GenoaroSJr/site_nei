@@ -8,17 +8,23 @@ const path = require('path'); // manipular pastas e diretorios
 const mongoose = require('mongoose');
 const session = require("express-session");
 const flash = require("connect-flash");
+
+
 require("./models/Postagem");
 const Postagem = mongoose.model("postagens");
 require("./models/Categoria");
 const Categoria = mongoose.model("categorias");
+require("./models/Pesquisa");
+const Pesquisa = mongoose.model("pesquisas");
+require("./models/Edital");
+const Edital = mongoose.model("editais");
+
 const usuarios = require("./routes/usuario");
 const passport = require("passport");
 require("./config/auth")(passport);
-require("./models/Editais");
-const Editais = mongoose.model("editais");
-require("./models/Pesquisa");
-const Pesquisa = mongoose.model("pesquisas");
+
+
+
 
 
 //Configurações
@@ -62,14 +68,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //Rotas
 app.get('/', (req, res) => {
-    Postagem.find().populate("categoria").sort({ data: 'desc' }).then((postagens) => {
-        res.render("index", { postagens: postagens });
-    }).catch((erro) => {
-        req.flash("error_msg", "Houve um erro interno! " + err);
-        res.redirect("/404");
-    })
+        res.render("index");
 })
 
+//Rotas - postagens
 app.get("/postagem/:slug", (req, res) => {
     Postagem.findOne({ slug: req.params.slug }).then((postagem) => {
         if (postagem) {
@@ -84,6 +86,7 @@ app.get("/postagem/:slug", (req, res) => {
     })
 })
 
+//Rotas - categorias
 app.get("/categorias", (req, res) => {
     Categoria.find().then((categorias) => {
         res.render("categorias/index", { categorias: categorias });
@@ -113,8 +116,9 @@ app.get("/categorias/:slug", (req, res) => {
     })
 })
 
+//Rotas - editais
 app.get("/editais", (req, res) => {
-    Editais.find().then((editais) => {
+    Edital.find().then((editais) => {
         res.render("editais/index", { editais: editais });
     }).catch((err) => {
         req.flash("error_msg", "Houve um erro interno! " + err);
@@ -122,8 +126,9 @@ app.get("/editais", (req, res) => {
     })
 })
 
+//Rotas - pesquisa
 app.get("/pesquisas", (req, res) => {
-    Editais.find().then((pesquisas) => {
+    Edital.find().then((pesquisas) => {
         res.render("pesquisas/index", { pesquisas: pesquisas });
     }).catch((err) => {
         req.flash("error_msg", "Houve um erro interno! " + err);
@@ -131,12 +136,12 @@ app.get("/pesquisas", (req, res) => {
     })
 })
 
+app.use('/admin', admin);
+app.use("/usuarios", usuarios);
+
 app.get("/404", (req, res) => {
     res.send("ERRO 404!");
 })
-
-app.use('/admin', admin);
-app.use("/usuarios", usuarios);
 //Outros
 const PORT = 8081;
 app.listen(PORT, () => {

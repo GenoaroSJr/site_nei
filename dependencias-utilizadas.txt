@@ -7,3 +7,4 @@ connect-flash
 bcryptjs
 passport
 passport-local
+multer
